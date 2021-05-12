@@ -7,9 +7,11 @@ public class CalculatorTest {
 
     @Test
 
-    public void when4number11(){
-        double expected = 11;
-        double out = Calculator.add(1,2,3,5);
-        Assert.assertEquals(expected, out, 0.01);
+    public void when4number7(){
+        double expected = 7.0;
+        double actual;
+        Calculator out = new Calculator();
+        actual = out.max(1,2,4,7);
+        Assert.assertEquals(expected, actual, 0.01);
     }
 }
