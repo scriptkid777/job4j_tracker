@@ -11,7 +11,6 @@ public class Calculator {
                 add(second, third)
         );
     }
-
     public static double add(double first, double second, double third, double fourth){
         return add(first, second, add(third,fourth));
     }
