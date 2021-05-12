@@ -6,6 +6,7 @@ import org.junit.Test;
 public class CalculatorTest {
 
     @Test
+
     public void when4number(){
         double expected = 11;
         double out = Calculator.add(1,2,3,5);
