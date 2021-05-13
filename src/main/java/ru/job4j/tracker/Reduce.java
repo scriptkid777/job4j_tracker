@@ -4,7 +4,7 @@ public class Reduce {
         private int[] array;
 
         public void to(int[] array) {
-           this.array = array;
+           this.array = array; // ошибка произошла поскольку отсутствовало ключевое слово this которое присваевает параметр метода обьекту
         }
 
         public void print() {
