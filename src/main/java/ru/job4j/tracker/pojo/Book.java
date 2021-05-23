@@ -1,20 +1,20 @@
 package ru.job4j.tracker.pojo;
 
 public class Book {
-    private String Bookname;
+    private String bookname;
     private int countpage;
 
-    public Book(String Bookname ,int countpage){
-        this.Bookname  = Bookname;
+    public Book(String bookname ,int countpage){
+        this.bookname  = bookname;
         this.countpage = countpage;
     }
 
     public String getBookname() {
-        return Bookname;
+        return bookname;
     }
 
     public void setBookname(String bookname) {
-        Bookname = bookname;
+        bookname = bookname;
     }
 
     public int getCountpage() {
