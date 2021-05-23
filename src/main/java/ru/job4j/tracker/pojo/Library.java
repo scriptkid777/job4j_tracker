@@ -12,18 +12,18 @@ public class Library {
         books[1] = book1;
         books[2] = book2;
         books[3] = book3;
-        for (Book lib:books) {
+        for (Book lib : books) {
             System.out.println(lib.getBookname() + "-" + lib.getCountpage());
         }
         Book tmp = books[0];
         books[0] = books[3];
         books[3] = tmp;
 
-        for (Book lib:books) {
+        for (Book lib : books) {
             System.out.println(lib.getBookname());
         }
 
-        for (Book lib:books) {
+        for (Book lib : books) {
             if (("Clean Code").equals(lib.getBookname())){
                 System.out.println(lib.getCountpage());
             }
