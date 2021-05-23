@@ -14,7 +14,7 @@ public class Book {
     }
 
     public void setBookname(String bookname) {
-        bookname = bookname;
+        this.bookname = bookname;
     }
 
     public int getCountpage() {
