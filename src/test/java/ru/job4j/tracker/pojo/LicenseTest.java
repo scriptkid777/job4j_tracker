@@ -6,6 +6,7 @@ import org.junit.Test;
 
 public class LicenseTest {
 
+
     @Test
     public void eqName() {
         License first = new License();
