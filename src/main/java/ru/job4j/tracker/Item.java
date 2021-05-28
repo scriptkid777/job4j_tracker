@@ -19,7 +19,9 @@ public class Item {
         this.id = id;
     }
 
-    public LocalDateTime getTime() {return created;}
+    public LocalDateTime getTime() {
+        return created;
+    }
 
     public int getId() {
         return id;
