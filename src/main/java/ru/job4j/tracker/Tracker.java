@@ -3,7 +3,7 @@ import java.util.Arrays;
 
 public class Tracker {
     private final Item[] items = new Item[100];
-    private int ids = 1;
+    private int ids = 0;
     private int size = 0;
 
     public Item add(Item item) {
@@ -14,14 +14,10 @@ public class Tracker {
 
     public Item findById(int id) {
         Item rsl = null;
-        for (int index = 0; index < size; index++) {
-            Item item = items[index];
-            if (item.getId() == id) {
-                rsl = item;
-                break;
-            }
-        }
-        return rsl;
+        /* Находим индекс */
+        int index = indexOf(id);
+        /* Если индекс найден возвращаем item, иначе null */
+        return index != -1 ? items[index] : null;
     }
 
     public Item[] findAll() {
@@ -38,6 +34,28 @@ public class Tracker {
                 count++;
             }
         }
-        return Arrays.copyOf(itemname,count);
+        return Arrays.copyOf(itemname, count);
+    }
+
+    public boolean replace(int id, Item item) {
+        boolean result = false;
+        int index = indexOf(id);
+        if (index != -1) {
+            item.setId(id);
+            items[id] = item;
+            result = true;
+        }
+        return result;
+    }
+
+    private int indexOf(int id) {
+        int rsl = -1;
+        for (int i = 0; i < items.length; i++) {
+            if (items[i].getId() == id) {
+                rsl = i;
+                break;
+            }
+        }
+        return rsl;
     }
 }
