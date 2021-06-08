@@ -7,12 +7,16 @@ public class Matches {
         System.out.println("Игра 11.");
         boolean turn = true;
         int count = 11;
+        int matches = -1;
         while (count > 0) {
-            System.out.println("Количество спичек на столе:" + count);
-            String player = turn ? "Первый игрок" : "Второй игрок";
-            System.out.println(player + " введите число от 1 до 3:");
-            int matches = Integer.parseInt(input.nextLine());
+            while (matches < 0 || matches > 3) {
+                System.out.println("Количество спичек на столе:" + count);
+                String player = turn ? "Первый игрок" : "Второй игрок";
+                System.out.println(player + " введите число от 1 до 3:");
+                matches = Integer.parseInt(input.nextLine());
+            }
             count -= matches;
+            matches = -1;
             turn = !turn;
         }
         if (!turn) {
