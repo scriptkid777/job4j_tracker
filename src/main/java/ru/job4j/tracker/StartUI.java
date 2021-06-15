@@ -16,6 +16,7 @@ public class StartUI {
                     String name = scanner.nextLine();
                     Item item1 = new Item(name);
                     tracker.add(item1);
+                    System.out.println("Добавленная заявка: " + item1);
                     break;
 
                 case 1:
@@ -26,7 +27,7 @@ public class StartUI {
                             System.out.println(item);
                         }
                     } else {
-                        System.out.println("Base is empty");
+                        System.out.println("Хранилище еще не содержит заявок");
                     }
                     break;
 
