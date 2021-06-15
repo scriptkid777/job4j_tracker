@@ -3,7 +3,6 @@ import java.util.Scanner;
 
 public class StartUI {
 
-    @SuppressWarnings("checkstyle:AvoidNestedBlocks")
     public void init(Scanner scanner, Tracker tracker) {
         boolean run = true;
         while (run) {
