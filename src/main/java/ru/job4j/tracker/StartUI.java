@@ -14,8 +14,8 @@ public class StartUI {
                     System.out.println("=== Create a new Item ===");
                     System.out.print("Enter name: ");
                     String name = scanner.nextLine();
-                    Item item = new Item(name);
-                    tracker.add(item);
+                    Item item1 = new Item(name);
+                    tracker.add(item1);
                     break;
 
                 case 1:
@@ -57,26 +57,26 @@ public class StartUI {
                 case 4:
                     System.out.println("=== Looking for an item by id ===");
                     System.out.print("Write id of the item to find: ");
-                    int id = Integer.valueOf(scanner.nextLine());
-                    Item item = tracker.findById(id);
-                    if (item != null) {
-                        System.out.println(item);
+                    int fid = Integer.valueOf(scanner.nextLine());
+                    Item item2 = tracker.findById(fid);
+                    if (item2 != null) {
+                        System.out.println(item2);
                     } else {
-                        System.out.println("The item with id=" + id + " is not found");
+                        System.out.println("The item with id=" + fid + " is not found");
                     }
                     break;
 
                 case 5:
                     System.out.println("=== Looking for an item by name ===");
                     System.out.print("Write name of the item to find: ");
-                    String name = scanner.nextLine();
-                    Item[] items = tracker.findByName(name);
-                    if (items.length > 0) {
-                        for (Item item : items) {
-                            System.out.println(item);
+                    String name1 = scanner.nextLine();
+                    Item[] items1 = tracker.findByName(name1);
+                    if (items1.length > 0) {
+                        for (Item item3 : items1) {
+                            System.out.println(item3);
                         }
                     } else {
-                        System.out.println("Item with the given name \"" + name + "\" is not found");
+                        System.out.println("Item with the given name \"" + name1 + "\" is not found");
                     }
                     break;
 
@@ -84,12 +84,13 @@ public class StartUI {
                     System.out.println("=== Exiting the program ===");
                     run = false;
                     break;
+                default:
 
             }
         }
     }
 
-        private void showMenu () {
+        private void showMenu() {
             String[] menu = {
                     "Add new Item", "Show all items", "Edit item",
                     "Delete item", "Find item by id", "Find items by name",
