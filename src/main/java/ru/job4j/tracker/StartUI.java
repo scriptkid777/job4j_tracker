@@ -34,13 +34,13 @@ public class StartUI {
                 case 2:
                     System.out.println("=== Editing an item ===");
                     System.out.print("Write id of the item to edit: ");
-                    int id = Integer.valueOf(scanner.nextLine());
+                    int id = Integer.parseInt(scanner.nextLine());
                     System.out.print("Write new name of the item: ");
                     Item item = new Item(scanner.nextLine());
                     if (tracker.replace(id, item)) {
-                        System.out.println("The item has been edited");
+                        System.out.println("Заявка изменена успешно.");
                     } else {
-                        System.out.println("Something went wrong. The item could not been edited");
+                        System.out.println("Что-то пошло не так.Заявка не может быть изменена");
                     }
                     break;
 
