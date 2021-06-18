@@ -47,11 +47,11 @@ public class StartUI {
                 case 3:
                     System.out.println("=== Deleting an item ===");
                     System.out.print("Write id of the item to delete: ");
-                    int did = Integer.valueOf(scanner.nextLine());
+                    int did = Integer.parseInt(scanner.nextLine());
                     if (tracker.delete(did)) {
-                        System.out.println("The item has been deleted");
+                        System.out.println("Заявка успешно удалена.");
                     } else {
-                        System.out.println("Something went wrong. The item could not been deleted");
+                        System.out.println("Ошибка удаления заявки.");
                     }
                     break;
 
