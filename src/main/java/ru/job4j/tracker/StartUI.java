@@ -77,7 +77,7 @@ public class StartUI {
                             System.out.println(item3);
                         }
                     } else {
-                        System.out.println("Item with the given name \"" + name1 + "\" is not found");
+                        System.out.println("Заявки с именем:" + name1 + " не найдены.");
                     }
                     break;
 
