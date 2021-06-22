@@ -58,12 +58,12 @@ public class StartUI {
                 case 4:
                     System.out.println("=== Looking for an item by id ===");
                     System.out.print("Write id of the item to find: ");
-                    int fid = Integer.valueOf(scanner.nextLine());
+                    int fid = Integer.parseInt(scanner.nextLine());
                     Item item2 = tracker.findById(fid);
                     if (item2 != null) {
                         System.out.println(item2);
                     } else {
-                        System.out.println("The item with id=" + fid + " is not found");
+                        System.out.println("Заявка с введенным id:" + fid + "не найдена.");
                     }
                     break;
 
