@@ -1,6 +1,7 @@
 package ru.job4j.tracker;
 
 
+
 public class StartUI {
 
     public static  void createItem (Input input, Tracker tracker){
@@ -56,7 +57,7 @@ public class StartUI {
         }
     }
 
-    public static void findByName (Input input, Tracker tracker){
+    public static void findByName (Input input, Tracker tracker) {
         System.out.println("=== Looking for an item by name ===");
         String name1 = input.askStr("Имя заявки для поиска:");
         Item[] items1 = tracker.findByName(name1);
