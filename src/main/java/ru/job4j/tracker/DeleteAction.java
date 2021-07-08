@@ -1,6 +1,6 @@
 package ru.job4j.tracker;
 
-public class DeleteAction implements  UserAction {
+public class DeleteAction implements UserAction{
     @Override
     public String name() {
         return "=== Deleting an item ===";
@@ -14,6 +14,7 @@ public class DeleteAction implements  UserAction {
         } else {
             System.out.println("Ошибка удаления заявки.");
         }
+
         return true;
     }
 }

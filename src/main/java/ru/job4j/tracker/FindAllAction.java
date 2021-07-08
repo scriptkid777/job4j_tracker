@@ -2,7 +2,7 @@ package ru.job4j.tracker;
 
 public class FindAllAction implements UserAction {
     @Override
-    public String name() {
+     public String name() {
         return "=== Showing all the items ===";
     }
 
