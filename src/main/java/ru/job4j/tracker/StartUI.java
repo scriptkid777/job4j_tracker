@@ -1,10 +1,8 @@
 package ru.job4j.tracker;
 
-
-
 public class StartUI {
 
-    public static  void createItem (Input input, Tracker tracker){
+    public static  void createItem(Input input, Tracker tracker) {
         System.out.println("=== Create a new Item ===");
         String name = input.askStr("Введите имя заявки ");
         Item item1 = new Item(name);
@@ -12,7 +10,7 @@ public class StartUI {
         System.out.println("Добавленная заявка: " + item1);
     }
 
-    public static void findAllItems(Tracker tracker){
+    public static void findAllItems(Tracker tracker) {
         System.out.println("=== Showing all the items ===");
         Item[] items = tracker.findAll();
         if (items.length > 0) {
@@ -24,7 +22,7 @@ public class StartUI {
         }
     }
 
-    public static void deleteItem(Input input, Tracker tracker){
+    public static void deleteItem(Input input, Tracker tracker) {
         System.out.println("=== Deleting an item ===");
         int did = input.askInt("Write id of the item to delete: ");
         if (tracker.delete(did)) {
@@ -34,7 +32,7 @@ public class StartUI {
         }
     }
 
-    public static void editItem(Input input, Tracker tracker){
+    public static void editItem(Input input, Tracker tracker) {
         System.out.println("=== Editing an item ===");
         System.out.print("");
         int id = input.askInt("Write id of the item to edit: ");
@@ -46,7 +44,7 @@ public class StartUI {
         }
     }
 
-    public static void findById(Input input, Tracker tracker){
+    public static void findById(Input input, Tracker tracker) {
         System.out.println("=== Looking for an item by id ===");
         int fid = input.askInt("Write id of the item to find: ");
         Item item2 = tracker.findById(fid);
@@ -57,7 +55,7 @@ public class StartUI {
         }
     }
 
-    public static void findByName (Input input, Tracker tracker) {
+    public static void findByName(Input input, Tracker tracker) {
         System.out.println("=== Looking for an item by name ===");
         String name1 = input.askStr("Имя заявки для поиска:");
         Item[] items1 = tracker.findByName(name1);
@@ -77,22 +75,22 @@ public class StartUI {
             int select = input.askInt("Select: ");
             switch (select) {
                 case 0:
-                    StartUI.createItem(input,tracker);
+                    StartUI.createItem(input, tracker);
                     break;
                 case 1:
                     StartUI.findAllItems(tracker);
                     break;
 
                 case 2:
-                    StartUI.editItem(input,tracker);
+                    StartUI.editItem(input, tracker);
                     break;
 
                 case 3:
-                    StartUI.deleteItem(input,tracker);
+                    StartUI.deleteItem(input, tracker);
                     break;
 
                 case 4:
-                  StartUI.findById(input,tracker);
+                  StartUI.findById(input, tracker);
                     break;
 
                 case 5:
