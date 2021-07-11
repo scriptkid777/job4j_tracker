@@ -59,7 +59,7 @@ public class StartUITest {
 
     @Test
     public void whenReplaceItem() {
-        Output output = new ConsoleOutput();
+        Output output = new StubOutput();
         Tracker tracker = new Tracker();
         /* Добавим в tracker новую заявку */
         Item item = tracker.add(new Item("Replaced item"));
@@ -69,7 +69,7 @@ public class StartUITest {
                 new String[]{"0", String.valueOf(item.getId()), replacedName, "1"}
         );
         UserAction[] actions = {
-                new EditAction(),
+                new EditAction(output),
                 new ExitAction(output)
         };
         new StartUI(output).init(in, tracker, actions);
@@ -87,7 +87,7 @@ public class StartUITest {
                 new String[]{"0", String.valueOf(item.getId()), "1"}
         );
         UserAction[] actions = {
-                new DeleteAction(),
+                new DeleteAction(output),
                 new ExitAction(output)
         };
         new StartUI(output).init(in, tracker, actions);
