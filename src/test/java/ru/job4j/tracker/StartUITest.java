@@ -94,7 +94,6 @@ public class StartUITest {
         assertThat(tracker.findById(item.getId()), is(nullValue()));
     }
 
-
     @Test
     public void whenExit() {
         Output out = new StubOutput();
@@ -107,8 +106,23 @@ public class StartUITest {
         };
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(
-                "Menu." + System.lineSeparator() +
-                        "0. Exit" + System.lineSeparator()
+                "Menu." + System.lineSeparator()
+                        + "0. Exit" + System.lineSeparator()
         ));
+    }
+
+    @Test
+    public void whenFindAllAction() {
+        Output output = new ConsoleOutput();
+        Tracker tracker = new Tracker();
+        Item item = tracker.add(new Item("новая заявка"));
+        Input in = new StubInput(
+                new String[]{"0", "1"});
+        UserAction[] actions = {
+                new FindAllAction(output),
+                new ExitAction(output)
+        };
+        new StartUI(output).init(in, tracker, actions);
+        assertThat(tracker.findAll()[0].getName(), is("новая заявка"));
     }
 }
