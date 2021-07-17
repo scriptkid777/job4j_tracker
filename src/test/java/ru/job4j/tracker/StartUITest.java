@@ -125,4 +125,33 @@ public class StartUITest {
         new StartUI(output).init(in, tracker, actions);
         assertThat(tracker.findAll()[0].getName(), is("новая заявка"));
     }
+
+    @Test
+    public void whenFindByNameAction() {
+     Output output = new StubOutput();
+        Tracker tracker = new Tracker();
+        Item item = tracker.add(new Item("заявка"));
+        String name = "заявка";
+        Input in = new StubInput(new String[]{"0",name, "1"});
+        UserAction[] actions  = {new FindNameAction(output),new ExitAction(output)};
+        new StartUI(output).init(in , tracker, actions);
+        assertThat(tracker.findByName("заявка")[0].getName(), is("заявка"));
+    }
+
+    @Test
+    public void whenFindById() {
+        Output output = new StubOutput();
+        Tracker tracker = new Tracker();
+        Item item = tracker.add(new Item("item"));
+        Input in = new StubInput(
+                new String[] {"0", "1", "1"}
+        );
+        UserAction[] actions = {
+                new FindIdAction(output),
+                new ExitAction(output)
+        };
+        new StartUI(output).init(in, tracker, actions);
+        assertThat(tracker.findById(item.getId()).getId(), is(1));
+    }
+
 }
