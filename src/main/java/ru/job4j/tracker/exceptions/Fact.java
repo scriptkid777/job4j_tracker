@@ -2,10 +2,10 @@ package ru.job4j.tracker.exceptions;
 
 public class Fact {
     public static void main(String[] args) {
-        new Fact().calc(3);
+        calc(-1);
     }
 
-    public int calc(int n) {
+    public static int calc(int n) {
         if (n < 0) {
             throw new IllegalArgumentException("n должно быть больше 0!");
         }
