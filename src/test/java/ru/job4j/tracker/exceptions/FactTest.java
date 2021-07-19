@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
 
 public class FactTest {
 
-    @Test(expected = IllegalArgumentException.class)
+     @Test(expected = IllegalArgumentException.class)
     public void whenNlessZero() {
        int rsl = Fact.calc(-2);
         assertThat(rsl,is(2));
