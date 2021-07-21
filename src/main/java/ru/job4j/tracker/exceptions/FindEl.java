@@ -5,21 +5,21 @@ public class FindEl {
         int rsl = -1;
         /* цикл fori, поскольку нам надо найти индекс искомого элемента в массиве */
         for (int i = 0; i <value.length ; i++) {
-            if (value[i].equals(key)){
+            if (value[i].equals(key)) {
                 rsl = i;
+                break;
             }
-            else {
-              throw new ElementNotFoundException("Индекс элемента не найден");
-            }
+        }
+        if (rsl == -1) {
+            throw new ElementNotFoundException("Индекс элемента не найден");
         }
         return rsl;
     }
 
     public static void main(String[] args)  {
         try {
-        indexOf(new String[]{"A", "B", "C", "D", "E"},"A");
-        }
-        catch (ElementNotFoundException t){
+        indexOf(new String[]{"A", "B", "C", "D", "E"},"F");
+        } catch (ElementNotFoundException t) {
             t.printStackTrace();
         }
     }
