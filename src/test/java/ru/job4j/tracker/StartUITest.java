@@ -6,7 +6,7 @@ import static org.hamcrest.core.Is.is;
 import static org.hamcrest.Matchers.nullValue;
 
 public class StartUITest {
- /*   @Test
+    /* @Test
     public void whenAddItem() {
         String[] answers = {"Fix PC"};
         Input input = new StubInput(answers);
@@ -113,7 +113,7 @@ public class StartUITest {
 
     @Test
     public void whenFindAllAction() {
-        Output output = new ConsoleOutput();
+        Output output = new StubOutput();
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("новая заявка"));
         Input in = new StubInput(
@@ -123,7 +123,7 @@ public class StartUITest {
                 new ExitAction(output)
         };
         new StartUI(output).init(in, tracker, actions);
-        assertThat(tracker.findAll()[0].getName(), is("новая заявка"));
+        assertThat(output.toString(), is("новая заявка"));
     }
 
     @Test
@@ -132,9 +132,9 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("заявка"));
         String name = "заявка";
-        Input in = new StubInput(new String[]{"0",name, "1"});
-        UserAction[] actions  = {new FindNameAction(output),new ExitAction(output)};
-        new StartUI(output).init(in , tracker, actions);
+        Input in = new StubInput(new String[]{"0", name, "1"});
+        UserAction[] actions  = {new FindNameAction(output), new ExitAction(output)};
+        new StartUI(output).init(in, tracker, actions);
         assertThat(tracker.findByName("заявка")[0].getName(), is("заявка"));
     }
 
@@ -154,4 +154,25 @@ public class StartUITest {
         assertThat(tracker.findById(item.getId()).getId(), is(1));
     }
 
+    @Test
+    public void whenInvalidExit() {
+        Output out = new StubOutput();
+        Input in = new StubInput(
+                new String[] {"7", "0"}
+        );
+        Tracker tracker = new Tracker();
+        UserAction[] actions = new UserAction[]{
+                new ExitAction(out)
+        };
+        new StartUI(out).init(in, tracker, actions);
+        String ln = System.lineSeparator();
+        assertThat(out.toString(), is(
+                "Menu." + ln
+                        + "0. Exit" + ln
+                        + "Wrong input, you can select: 0 .. 0" + ln
+                        + "Menu." + ln
+                        + "0. Exit" + ln
+                )
+        );
+    }
 }
