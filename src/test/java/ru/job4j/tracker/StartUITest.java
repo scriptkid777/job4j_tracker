@@ -93,7 +93,7 @@ public class StartUITest {
                         + "0. === Showing all the items ===" + System.lineSeparator()
                         + "1. Exit" + System.lineSeparator()
                         + "=== Show all items ===" + System.lineSeparator()
-                        + "Item{id=1, name='новая заявка'}" + System.lineSeparator()
+                        + item + System.lineSeparator()
                         + "Menu." + System.lineSeparator()
                         + "0. === Showing all the items ===" + System.lineSeparator()
                         + "1. Exit" + System.lineSeparator()));
@@ -111,7 +111,11 @@ public class StartUITest {
         assertThat(output.toString(), is("Menu." + System.lineSeparator()
                 + "0. === Looking for an item by name ===" + System.lineSeparator()
                 + "1. Exit" + System.lineSeparator()
-                + "Заявки с именем:" + name + " не найдена." + System.lineSeparator()));
+                + "Заявки с именем: " + name + " не найдена." + System.lineSeparator()
+                + "Menu." + System.lineSeparator()
+                + "0. === Looking for an item by name ===" + System.lineSeparator()
+                + "1. Exit" + System.lineSeparator()
+        ));
     }
 
     @Test
@@ -127,7 +131,15 @@ public class StartUITest {
                 new ExitAction(output)
         };
         new StartUI(output).init(in, tracker, actions);
-        assertThat(output.toString(), is(1));
+        assertThat(output.toString(), is("Menu." + System.lineSeparator()
+                + "0. === Looking for an item by id ===" + System.lineSeparator()
+                + "1. Exit" + System.lineSeparator()
+                + item + System.lineSeparator()
+                + "Menu." + System.lineSeparator()
+                        + "0. === Looking for an item by id ===" + System.lineSeparator()
+                        + "1. Exit" + System.lineSeparator()
+        ));
+
     }
 
     @Test
