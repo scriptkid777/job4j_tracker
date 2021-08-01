@@ -21,7 +21,7 @@ public class FindNameAction implements UserAction {
                 System.out.println(item);
             }
         } else {
-            System.out.println("Заявки с именем:" + name + " не найдены.");
+            System.out.println("Заявки с именем: " + name + " не найдена.");
         }
         return true;
     }

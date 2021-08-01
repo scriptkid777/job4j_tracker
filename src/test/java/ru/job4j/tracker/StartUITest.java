@@ -6,41 +6,6 @@ import static org.hamcrest.core.Is.is;
 import static org.hamcrest.Matchers.nullValue;
 
 public class StartUITest {
-    /* @Test
-    public void whenAddItem() {
-        String[] answers = {"Fix PC"};
-        Input input = new StubInput(answers);
-        Tracker tracker = new Tracker();
-        StartUI.createItem(input, tracker);
-        Item created = tracker.findAll()[0];
-        Item expected = new Item("Fix PC");
-        assertThat(created.getName(), is(expected.getName()));
-    }
-
-    @Test
-    public void whenEditItem() {
-        Tracker tracker = new Tracker();
-        Item item = new Item("new item");
-        tracker.add(item);
-        String[] answers = {
-                item.getId() + "",
-                "replaced item"
-        };
-        StartUI.editItem(new StubInput(answers), tracker);
-        Item replaced = tracker.findById(item.getId());
-        assertThat(replaced.getName(), is("replaced item"));
-    }
-
-    @Test
-    public void whenDeleteItem() {
-        Tracker tracker = new Tracker();
-        Item item = new Item("item to delete");
-        tracker.add(item);
-        String[] answers = {item.getId() + ""};
-        StartUI.deleteItem(new StubInput(answers), tracker);
-        assertThat(tracker.findById(item.getId()), is(nullValue()));
-    }
-  */
 
       @Test
        public void whenCreateItem() {
@@ -123,19 +88,30 @@ public class StartUITest {
                 new ExitAction(output)
         };
         new StartUI(output).init(in, tracker, actions);
-        assertThat(output.toString(), is("новая заявка"));
+        assertThat(output.toString(), is(
+                "Menu." + System.lineSeparator()
+                        + "0. === Showing all the items ===" + System.lineSeparator()
+                        + "1. Exit" + System.lineSeparator()
+                        + "=== Show all items ===" + System.lineSeparator()
+                        + "Item{id=1, name='новая заявка'}" + System.lineSeparator()
+                        + "Menu." + System.lineSeparator()
+                        + "0. === Showing all the items ===" + System.lineSeparator()
+                        + "1. Exit" + System.lineSeparator()));
     }
 
     @Test
     public void whenFindByNameAction() {
      Output output = new StubOutput();
         Tracker tracker = new Tracker();
-        Item item = tracker.add(new Item("заявка"));
         String name = "заявка";
-        Input in = new StubInput(new String[]{"0", name, "1"});
+        //Item item = tracker.add(new Item(name));
+        Input in = new StubInput(new String[]{"0", "заявка", "1"});
         UserAction[] actions  = {new FindNameAction(output), new ExitAction(output)};
         new StartUI(output).init(in, tracker, actions);
-        assertThat(tracker.findByName("заявка")[0].getName(), is("заявка"));
+        assertThat(output.toString(), is("Menu." + System.lineSeparator()
+                + "0. === Looking for an item by name ===" + System.lineSeparator()
+                + "1. Exit" + System.lineSeparator()
+                + "Заявки с именем:" + name + " не найдена." + System.lineSeparator()));
     }
 
     @Test
@@ -151,7 +127,7 @@ public class StartUITest {
                 new ExitAction(output)
         };
         new StartUI(output).init(in, tracker, actions);
-        assertThat(tracker.findById(item.getId()).getId(), is(1));
+        assertThat(output.toString(), is(1));
     }
 
     @Test
