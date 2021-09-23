@@ -3,14 +3,13 @@ package ru.job4j.tracker;
 import org.junit.Test;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
+import java.util.List;
 
 public class ValidateInputTest {
     @Test
     public void whenInvalidInput() {
         Output out = new StubOutput();
-        Input in = new StubInput(
-                new String[] {"one", "1"}
-        );
+        Input in = new StubInput(List.of("one", "1"));
         ValidateInput input = new ValidateInput(out, in);
         int selected = input.askInt("Enter menu:");
         assertThat(selected, is(1));
@@ -19,9 +18,7 @@ public class ValidateInputTest {
     @Test
     public void whenInvalidInputTrue() {
         Output out = new StubOutput();
-        Input in = new StubInput(
-                new String[] {"1"}
-        );
+        Input in = new StubInput(List.of("1"));
         ValidateInput input = new ValidateInput(out, in);
         int selected = input.askInt("Enter menu:");
         assertThat(selected, is(1));
@@ -30,9 +27,7 @@ public class ValidateInputTest {
     @Test
     public void whenvalidInputmore() {
         Output out = new StubOutput();
-        Input in = new StubInput(
-                new String[] {"1", "2", "3"}
-        );
+        Input in = new StubInput(List.of("1", "2", "3"));
         ValidateInput input = new ValidateInput(out, in);
         int selected = input.askInt("Enter menu:");
         int selected1 = input.askInt("Enter menu:");
@@ -45,9 +40,7 @@ public class ValidateInputTest {
     @Test
     public void whenInvalidInputminus() {
         Output out = new StubOutput();
-        Input in = new StubInput(
-                new String[] {"-5"}
-        );
+        Input in = new StubInput(List.of("-5"));
         ValidateInput input = new ValidateInput(out, in);
         int selected = input.askInt("Enter menu:");
         assertThat(selected, is(-5));
