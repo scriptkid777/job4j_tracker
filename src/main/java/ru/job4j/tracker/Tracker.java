@@ -36,8 +36,8 @@ public class Tracker {
 
         int index = indexOf(id);
         if (index != -1) {
-           this.items.set(index, item);
-           this.items.get(index).setId(id);
+           item.setId(id);
+           items.set(index, item);
            return true;
         }
         return false;
