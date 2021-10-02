@@ -82,7 +82,6 @@ public class StartUITest {
      Output output = new StubOutput();
         Tracker tracker = new Tracker();
         String name = "заявка";
-        //Item item = tracker.add(new Item(name));
         Input in = new StubInput(List.of("0", "заявка", "1"));
         List<UserAction> actions  = List.of(new FindNameAction(output), new ExitAction(output));
         new StartUI(output).init(in, tracker, actions);
