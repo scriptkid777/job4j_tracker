@@ -1,12 +1,23 @@
 package ru.job4j.tracker;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
+import java.util.Arrays;
 
-public class Item {
+public class Item implements Comparable<Item> {
     private int id;
     private String name;
 
     public Item() {
+    }
+
+    public Item(String name) {
+        this.name = name;
+    }
+
+    public Item(String name, int id) {
+        this.name = name;
+        this.id = id;
     }
 
     @Override
@@ -19,15 +30,6 @@ public class Item {
                 ", name='" + name + '\''
                  +
                 '}';
-    }
-
-    public Item(String name) {
-        this.name = name;
-    }
-
-    public Item(String name, int id) {
-        this.name = name;
-        this.id = id;
     }
 
     public int getId() {
@@ -44,6 +46,11 @@ public class Item {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public int compareTo(Item o) {
+        return Integer.compare(id, o.id);
     }
 }
 
