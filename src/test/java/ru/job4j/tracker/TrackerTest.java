@@ -4,6 +4,8 @@ import org.junit.Test;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.IsNull.nullValue;
+
+import java.util.Arrays;
 import java.util.List;
 import java.util.Collections;
 
@@ -44,15 +46,12 @@ public class TrackerTest {
 
     @Test
     public void sortById() {
-        Tracker tracker = new Tracker();
-        Item first = new Item("First", 1);
-        Item second = new Item("Second", 2);
-        Item third = new Item("Third", 3);
-        tracker.add(first);
-        tracker.add(second);
-        tracker.add(third);
-        List<Item> expect = List.of(third, second, first);
-        List<Item> rsl = tracker.findAll();
+        List<Item> rsl  = Arrays.asList(new Item("First", 1),
+                new Item("Second", 2),
+                new Item("Third", 3));
+        List<Item> expect  = Arrays.asList(new Item("Third", 3),
+                new Item("Second", 2),
+                new Item("First", 1));
         Collections.sort(rsl, Collections.reverseOrder());
         assertThat(rsl, is(expect));
     }
