@@ -44,46 +44,6 @@ public class TrackerTest {
         assertThat(tracker.findById(id), is(nullValue()));
     }
 
-    @Test
-    public void sortById() {
-        List<Item> rsl  = Arrays.asList(new Item("First", 1),
-                new Item("Second", 2),
-                new Item("Third", 3));
-        List<Item> expect  = Arrays.asList(new Item("Third", 3),
-                new Item("Second", 2),
-                new Item("First", 1));
-        Collections.sort(rsl, Collections.reverseOrder());
-        assertThat(rsl, is(expect));
-    }
 
-    @Test
-    public void sortByName() {
-        Tracker tracker = new Tracker();
-        Item first = new Item("Cookie");
-        Item second = new Item("Banana");
-        Item third = new Item("Apple");
-        tracker.add(first);
-        tracker.add(second);
-        tracker.add(third);
-        List<Item> expect = List.of(third, second, first);
-        List<Item> rsl = tracker.findAll();
-        Collections.sort(rsl, new SortByItemsName());
-        assertThat(rsl, is(expect));
-    }
-
-    @Test
-    public void sortByNameReversed() {
-        Tracker tracker = new Tracker();
-        Item first = new Item("Apple");
-        Item second = new Item("Banana");
-        Item third = new Item("Cookie");
-        tracker.add(first);
-        tracker.add(second);
-        tracker.add(third);
-        List<Item> expect = List.of(third, second, first);
-        List<Item> rsl = tracker.findAll();
-        Collections.sort(rsl, new SortByItemsNameReverse());
-        assertThat(rsl, is(expect));
-    }
 
 }
