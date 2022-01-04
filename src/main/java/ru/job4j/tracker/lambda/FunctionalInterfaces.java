@@ -1,5 +1,4 @@
 package ru.job4j.tracker.lambda;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
