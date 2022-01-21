@@ -7,10 +7,8 @@ import java.util.function.Function;
 public class FunctionalRange {
     List<Double> diapason(int start, int end, Function<Double, Double> func) {
         List<Double> values = new ArrayList<>();
-        double rsl;
         for (int i = start; i < end; i++) {
-            rsl = func.apply((double) i);
-            values.add(rsl);
+            values.add(func.apply((double) i));
         }
         return values;
     }
