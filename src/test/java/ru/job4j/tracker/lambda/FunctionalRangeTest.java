@@ -20,7 +20,7 @@ public class FunctionalRangeTest {
 
         @Test
         public void whenQuadraticFunction() {
-            FunctionalRange function = new FunctionalRange();
+             FunctionalRange function = new FunctionalRange();
             List<Double> result = function.diapason(5, 9, x -> x * x);
             List<Double> expected = Arrays.asList(25D, 36D, 49D, 64D);
             assertThat(result, is(expected));
