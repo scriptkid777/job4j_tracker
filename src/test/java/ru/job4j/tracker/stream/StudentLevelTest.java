@@ -1,7 +1,5 @@
 package ru.job4j.tracker.stream;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 import java.util.ArrayList;
