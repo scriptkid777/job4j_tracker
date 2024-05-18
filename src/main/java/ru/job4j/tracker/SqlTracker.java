@@ -1,6 +1,5 @@
 package ru.job4j.tracker;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
@@ -9,8 +8,6 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 public class SqlTracker implements Store {
 
     private Connection connection;
@@ -122,7 +119,8 @@ public class SqlTracker implements Store {
     @Override
     public List<Item> findByName(String key) {
         List<Item> items = new ArrayList<>();
-        try (PreparedStatement statement = connection.prepareStatement("SELECT * FROM items where name = ?")) {
+        try (PreparedStatement statement =
+                     connection.prepareStatement("SELECT * FROM items where name = ?")) {
             statement.setString(1, key);
             try (ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
@@ -141,7 +139,8 @@ public class SqlTracker implements Store {
     @Override
     public Item findById(int id) {
         Item item = null;
-        try (PreparedStatement statement = connection.prepareStatement("SELECT * FROM items where id = ?")) {
+        try (PreparedStatement statement =
+                     connection.prepareStatement("SELECT * FROM items where id = ?")) {
             statement.setInt(1, id);
             try (ResultSet resultSet = statement.executeQuery()) {
                 if (resultSet.next()) {
