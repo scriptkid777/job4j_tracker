@@ -13,7 +13,7 @@ public class EditAction implements UserAction {
     }
 
     @Override
-    public boolean execute(Input input, Tracker tracker) {
+    public boolean execute(Input input, Store tracker) {
         int id = input.askInt("Write id of the item to edit: ");
         Item item = new Item(input.askStr("Введите имя редактируемой заявки"));
         if (tracker.replace(id, item)) {

@@ -15,7 +15,7 @@ public class FindNameAction implements UserAction {
     }
 
     @Override
-    public boolean execute(Input input, Tracker tracker) {
+    public boolean execute(Input input, Store tracker) {
         String name = input.askStr("Имя заявки для поиска:");
         List<Item> items = tracker.findByName(name);
         if (!items.isEmpty()) {

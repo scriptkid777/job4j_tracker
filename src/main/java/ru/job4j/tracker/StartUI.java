@@ -9,7 +9,7 @@ public class StartUI {
         this.out = out;
     }
 
-    public void init(Input input, Tracker tracker, List<UserAction> actions) {
+    public void init(Input input, Store tracker, List<UserAction> actions) {
         boolean run = true;
         while (run) {
             this.showMenu(actions);
@@ -23,7 +23,7 @@ public class StartUI {
         }
     }
 
-        private void showMenu( List<UserAction> actions) {
+        private void showMenu(List<UserAction> actions) {
 
         out.println("Menu.");
             for (int i = 0; i < actions.size(); i++) {
@@ -31,20 +31,23 @@ public class StartUI {
             }
         }
 
-        public static void main(String[]args) {
+        public static void main(String[]args) throws Exception {
         Output output = new ConsoleOutput();
             Input input = new  ValidateInput(output, new ConsoleInput());
-            Tracker tracker = new Tracker();
-            List<UserAction> actions = List.of(
-                    new CreateAction(output),
-                    new DeleteAction(output),
-                    new EditAction(output),
-                    new FindIdAction(output),
-                    new FindNameAction(output),
-                    new FindAllAction(output),
-                    new ExitAction(output)
-                );
-            new StartUI(output).init(input, tracker, actions);
+           try (Store Tracker = new SqlTracker()) {
+               List<UserAction> actions = List.of(
+                       new CreateAction(output),
+                       new FindAllAction(output),
+                       new EditAction(output),
+                       new FindIdAction(output),
+                       new FindNameAction(output),
+                       new DeleteAction(output),
+                       new ExitAction(output)
+               );
+               new StartUI(output).init(input, Tracker, actions);
+           } catch (Exception e) {
+               e.printStackTrace();
+           }
         }
-    }
+}
 
