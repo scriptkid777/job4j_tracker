@@ -1,11 +1,12 @@
 package ru.job4j.tracker;
 
 public class Doctor extends Profession {
-    private String diagnosis;
-    private String preparat;
+    private final  String diagnosis;
+    private final String preparat;
 
-    public Doctor(String name, String surname, String education, String birthday,String diagnosis, String preparat){
-        super(name,surname,education,birthday);
+    public Doctor(String name, String surname, String education,
+                  String birthday, String diagnosis, String preparat) {
+        super(name, surname, education, birthday);
         this.diagnosis = diagnosis;
         this.preparat = preparat;
     }
