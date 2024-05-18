@@ -13,17 +13,15 @@ public class Car {
 
     private String color;
 
-
-
     @Override
     public String toString() {
-        return "Builder{" +
-                "brand='" + brand + '\'' +
-                ", model='" + model + '\'' +
-                ", created=" + created +
-                ", volume=" + volume +
-                ", color='" + color + '\'' +
-                '}';
+        return "Builder{"
+                + "brand='" + brand + '\''
+                + ", model='" + model + '\''
+                + ", created=" + created
+                + ", volume=" + volume
+                + ", color='" + color + '\''
+                + '}';
     }
 
     static class Builder {
@@ -58,8 +56,6 @@ public class Car {
         return this;
         }
 
-
-
         Car build() {
         Car car = new Car();
         car.brand = brand;
@@ -84,7 +80,7 @@ public class Car {
         Car car1 = new Builder()
                 .buildBrand("Hyundai")
                 .buildModel("Accent")
-                .buildCreated(LocalDate.of(2018 , 5,12))
+                .buildCreated(LocalDate.of(2018, 5, 12))
                 .buildColor("Dark Blue")
                 .build();
         System.out.println(car1);

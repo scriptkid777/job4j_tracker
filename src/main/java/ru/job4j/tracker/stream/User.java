@@ -29,15 +29,15 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
-                "name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", age=" + age +
-                ", login='" + login + '\'' +
-                ", password='" + password + '\'' +
-                ", activated=" + activated +
-                ", gender='" + gender + '\'' +
-                '}';
+        return "User{"
+                + "name='" + name + '\''
+                + ", surname='" + surname + '\''
+                + ", age=" + age
+                + ", login='" + login + '\''
+                + ", password='" + password + '\''
+                + ", activated=" + activated
+                + ", gender='" + gender + '\''
+                + '}';
     }
 
     static class Builder {
@@ -85,7 +85,7 @@ public class User {
         }
 
         User build() {
-            User user = new User(name,surname,age,login,password,activated,gender);
+            User user = new User(name, surname, age, login, password, activated, gender);
             user.name = name;
             user.surname = surname;
             user.age = age;
@@ -95,8 +95,6 @@ public class User {
             user.gender = gender;
             return user;
         }
-
-
 
         public static void main(String[] args) {
             User user = new Builder().buildName("name")

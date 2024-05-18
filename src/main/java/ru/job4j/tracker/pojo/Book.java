@@ -4,7 +4,7 @@ public class Book {
     private String bookname;
     private int countpage;
 
-    public Book(String bookname ,int countpage){
+    public Book(String bookname, int countpage) {
         this.bookname  = bookname;
         this.countpage = countpage;
     }

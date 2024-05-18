@@ -3,11 +3,11 @@ package ru.job4j.tracker.map;
 import java.util.Objects;
 
 public class Student {
-    private String name;
+    private  final String name;
 
-    private String account;
+    private  final String account;
 
-    private String group;
+    private final String group;
 
     public Student(String name, String account, String group) {
         this.name = name;
@@ -29,8 +29,12 @@ public class Student {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Student student = (Student) o;
         return Objects.equals(account, student.account);
     }

@@ -2,9 +2,9 @@ package ru.job4j.tracker.pojo;
 
 public class Library {
     public static void main(String[] args) {
-        Book book = new Book("Clean Code" ,475);
-        Book book1 = new Book("Java in Action" , 1200);
-        Book book2 = new Book("Java 8",1100);
+        Book book = new Book("Clean Code", 475);
+        Book book1 = new Book("Java in Action", 1200);
+        Book book2 = new Book("Java 8", 1100);
         Book book3 = new Book("Start java", 875);
 
         Book[] books = new Book[4];
@@ -24,7 +24,7 @@ public class Library {
         }
 
         for (Book lib : books) {
-            if (("Clean Code").equals(lib.getBookname())){
+            if (("Clean Code").equals(lib.getBookname())) {
                 System.out.println(lib.getCountpage());
             }
         }
