@@ -13,12 +13,12 @@ public class ItemTest {
 
     @Test
     public void sortById() {
-        List<Item> rsl  = Arrays.asList(new Item("First", 1),
-                new Item("Second", 2),
-                new Item("Third", 3));
-        List<Item> expect  = Arrays.asList(new Item("Third", 3),
-                new Item("Second", 2),
-                new Item("First", 1));
+        List<Item> rsl  = Arrays.asList(new Item(),
+                new Item(),
+                new Item());
+        List<Item> expect  = Arrays.asList(new Item(),
+                new Item(),
+                new Item());
         Collections.sort(rsl, Collections.reverseOrder());
         assertThat(rsl, is(expect));
     }
