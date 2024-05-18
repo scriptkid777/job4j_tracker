@@ -5,7 +5,7 @@ import ru.job4j.tracker.Item;
 public class StartU {
 
     public static void main(String[] args) {
-        Item created = new Item();
+        Item created = new Item("First", 1);
         System.out.println(created);
     }
 

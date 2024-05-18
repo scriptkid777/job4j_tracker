@@ -2,8 +2,6 @@ package ru.job4j.tracker;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Objects;
-import java.util.Arrays;
 
 public class Item implements Comparable<Item> {
 
@@ -15,7 +13,7 @@ public class Item implements Comparable<Item> {
 
     private LocalDateTime created = LocalDateTime.now().withNano(0);
 
-    public Item() {
+    public Item(String first, int i) {
     }
 
     public Item(String name) {
