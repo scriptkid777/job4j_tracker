@@ -17,7 +17,7 @@ public class DeleteAction implements UserAction {
         int id = input.askInt("Write id of the item to delete: ");
         tracker.delete(id);
         Item item = tracker.findById(id);
-        out.println(item != null ? "Item is deleted successfully." : "Cannot delete the item.");
+        out.println(item == null ? "Item is deleted successfully." : "Cannot delete the item.");
         return true;
     }
 }
