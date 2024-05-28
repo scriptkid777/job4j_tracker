@@ -2,6 +2,8 @@ package ru.job4j.tracker;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Objects;
+
 public class Item implements Comparable<Item> {
 
     private static final DateTimeFormatter FORMATTER =
@@ -73,7 +75,7 @@ public class Item implements Comparable<Item> {
         if (id != item.id) {
             return false;
         }
-        return name != null ? name.equals(item.name) : item.name == null;
+        return Objects.equals(name, item.name);
     }
 
     @Override
