@@ -15,6 +15,5 @@ Used technologies:
 <li>Slf4j for logging</li>
 </ul>
 
-
-<img src="https://github.com/scriptkid777/job4j_tracker/img.png">
+<img src="https://github.com/scriptkid777/job4j_tracker/blob/master/img.png">
 
