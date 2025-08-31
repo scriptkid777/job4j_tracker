@@ -11,11 +11,12 @@ public class FindNameAction implements UserAction {
 
     @Override
     public String name() {
-        return "=== Looking for an item by name ===";
+        return "=== Find items by name ===";
     }
 
     @Override
     public boolean execute(Input input, Store tracker) {
+        output.println(FindNameAction.this.name());
         String name = input.askStr("Имя заявки для поиска:");
         List<Item> items = tracker.findByName(name);
         if (!items.isEmpty()) {
@@ -23,7 +24,7 @@ public class FindNameAction implements UserAction {
                 output.println(item);
             }
         } else {
-            output.println("Заявки с именем: " + name + " не найдена.");
+            output.println("Заявки с именем: " + name + " не найдены.");
         }
         return true;
     }

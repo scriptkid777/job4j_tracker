@@ -9,11 +9,12 @@ public class FindIdAction implements UserAction {
 
     @Override
     public String name() {
-        return "=== Looking for an item by id ===";
+        return "=== Find item by id ===";
     }
 
     @Override
-    public boolean execute(Input input, Store tracker) {
+    public  boolean execute(Input input, Store tracker) {
+       output.println(FindIdAction.this.name());
         int id = input.askInt("Write id of the item to find: ");
         Item item = tracker.findById(id);
         if (item != null) {
