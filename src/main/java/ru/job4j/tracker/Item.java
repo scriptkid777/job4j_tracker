@@ -3,16 +3,19 @@ package ru.job4j.tracker;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import lombok.Data;
+import javax.persistence.*;
 
+@Entity
+@Table(name = "items")
 @Data
 public class Item implements Comparable<Item> {
 
     private static final DateTimeFormatter FORMATTER =
             DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
-
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private String name;
-
     private LocalDateTime created = LocalDateTime.now().withNano(0);
 
     public Item(String name) {
