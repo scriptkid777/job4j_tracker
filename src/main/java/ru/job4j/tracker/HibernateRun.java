@@ -16,6 +16,9 @@ public class HibernateRun {
             SessionFactory sf = new MetadataSources(registry).buildMetadata().buildSessionFactory();
             var item = new Item();
             item.setName("Learn Hibernate");
+            create(item, sf);
+            System.out.println(item);
+            item.setName("Learn Hibernate 5.");
             update(item, sf);
             System.out.println(item);
             Item rsl = findById(item.getId(), sf);
