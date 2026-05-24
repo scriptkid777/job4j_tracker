@@ -2,8 +2,11 @@ package ru.job4j.tracker.toone;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
@@ -15,8 +18,11 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
-    @JoinColumn(name = "role_id")
     @ManyToOne
+    @JoinColumn(name = "role_id")
     private Role role;
 
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "j_user_id")
+    private List<UserMessenger> messengers = new ArrayList<>();
 }
